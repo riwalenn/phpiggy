@@ -24,7 +24,7 @@ class Router
         return preg_replace('#/{2,}#', '/', $path);
     }
 
-    public function dispatch(string $path, string $method)
+    public function dispatch(string $path, string $method): void
     {
         $path = $this->normalizePath($path);
         $method = strtoupper($method);
@@ -34,7 +34,10 @@ class Router
                 continue;
             }
 
-            echo 'route found';
+            [$class, $function] = $route['controller'];
+
+            $controllerInstance = new $class;
+            $controllerInstance->$function();
         }
     }
 }
