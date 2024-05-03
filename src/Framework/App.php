@@ -20,7 +20,7 @@ class App {
         echo "Application is running";
     }
 
-    public function get(string $path) {
-        $this->router->add(self::HTTP_GET_METHOD, $path);
+    public function get(string $path, array $controller) {
+        $this->router->add(self::HTTP_GET_METHOD, $path, $controller);
     }
 }
