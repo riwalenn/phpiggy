@@ -33,4 +33,8 @@ class App {
     public function get(string $path, array $controller) {
         $this->router->add(self::HTTP_GET_METHOD, $path, $controller);
     }
+
+    public function addMiddleware(string $middleware) {
+        $this->router->addMiddleware($middleware);
+    }
 }
