@@ -6,7 +6,7 @@ namespace Framework;
 
 class App {
     public const HTTP_GET_METHOD = 'GET';
-//    const HTTP_POST_METHOD   = 'POST';
+    const HTTP_POST_METHOD   = 'POST';
 //    const HTTP_PUT_METHOD    = 'PUT';
 //    const HTTP_DELETE_METHOD = 'DELETE';
     private Router $router;
@@ -32,6 +32,10 @@ class App {
 
     public function get(string $path, array $controller) {
         $this->router->add(self::HTTP_GET_METHOD, $path, $controller);
+    }
+
+    public function post(string $path, array $controller) {
+        $this->router->add(self::HTTP_POST_METHOD, $path, $controller);
     }
 
     public function addMiddleware(string $middleware) {
