@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Services\TransactionService;
 use Framework\Database;
 use Framework\Container;
 use Framework\TemplateEngine;
@@ -23,5 +24,10 @@ return [
         $db = $container->get(Database::class);
 
         return new UserService($db);
+    },
+    TransactionService::class => function(Container $container) {
+    $database = $container->get(Database::class);
+
+    return new TransactionService($database);
     }
 ];

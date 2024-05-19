@@ -6,10 +6,10 @@
 
             <label class="block">
                 <span class="text-gray-700">Email address</span>
-                <input value="<?php echo htmlspecialchars($oldFormData['email'] ?? ''); ?>" name="email" type="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="john@example.com" />
+                <input value="<?php echo escapeHtml($oldFormData['email'] ?? ''); ?>" name="email" type="email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="john@example.com" />
                 <?php if (array_key_exists('email', $errors)) : ?>
                     <div class="bg-gray-100 mt-2 p-2 text-red-500">
-                        <?php echo htmlspecialchars($errors['email'][0]); ?>
+                        <?php echo escapeHtml($errors['email'][0]); ?>
                     </div>
                 <?php endif; ?>
             </label>
@@ -18,7 +18,7 @@
                 <input name="password" type="password" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder="" />
                 <?php if (array_key_exists('password', $errors)) : ?>
                     <div class="bg-gray-100 mt-2 p-2 text-red-500">
-                        <?php echo htmlspecialchars($errors['password'][0]); ?>
+                        <?php echo escapeHtml($errors['password'][0]); ?>
                     </div>
                 <?php endif; ?>
             </label>
