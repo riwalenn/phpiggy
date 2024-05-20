@@ -19,7 +19,8 @@ class App {
         }
     }
 
-    public function run() {
+    public function run()
+    {
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $method = $_SERVER['REQUEST_METHOD'];
 
@@ -47,12 +48,18 @@ class App {
         return $this;
     }
 
-    public function addMiddleware(string $middleware) {
+    public function addMiddleware(string $middleware)
+    {
         $this->router->addMiddleware($middleware);
     }
 
     public function add(string $middleware)
     {
         $this->router->addRouteMiddleware($middleware);
+    }
+
+    public function setErrorHandler(array $controller)
+    {
+        $this->router->setErrorHandler($controller);
     }
 }
