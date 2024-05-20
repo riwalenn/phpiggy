@@ -1,6 +1,6 @@
-/vendor/composer/
 /composer.lock
 /vendor/
 /.env
 /.idea/*
 /storage/uploads/*
+!storage/uploads/.gitkeep
