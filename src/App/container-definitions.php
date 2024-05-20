@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Services\ReceiptService;
 use App\Services\TransactionService;
 use Framework\Database;
 use Framework\Container;
@@ -29,5 +30,9 @@ return [
     $database = $container->get(Database::class);
 
     return new TransactionService($database);
+    },
+    ReceiptService::class => function(Container $container) {
+    $database = $container->get(Database::class);
+    return new ReceiptService($database);
     }
 ];
